@@ -1,21 +1,28 @@
 :root {
-  --primary-color: gray;
-  --secondary-color: white;
+  --primary-color: hsl(270, 2%, 80%);
+  --secondary-color: hsl(180, 25%, 52%);
+  --tertiary-color: hsl(232, 24%, 24%);
+  --font-primary: 'Lobster', cursive;
+  --font-secondary: 'Outfit', sans-serif;
 }
 
 html,
 body {
+  font-family: var(--font-secondary);
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Outfit', sans-serif;
   text-align: center;
   line-height: 1.2;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   height: 100vh;
   display: flex;
+  background: var(--tertiary-color);
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -24,13 +31,17 @@ body {
 
 /* HEADER */
 header {
-  background: var(--primary-color);
+  background: var(--secondary-color);
   width: 100%;
+  padding: 0.5rem;
 }
 
 header h1 {
+  font-family: var(--font-primary);
   font-weight: 900;
   font-size: 2.5rem;
+  color: var(--tertiary-color);
+  margin: 0;
 }
 
 /* MAIN */
@@ -41,8 +52,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
-  background: var(--secondary-color);
 }
 
 /* Play buttons and display  */
@@ -52,32 +63,33 @@ main .play {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
-  /* padding: 1rem 2rem; */
+  background: var(--tertiary-color);
+  border-radius: 1rem;
 }
 
 /* Gameplay buttons */
 main .buttons {
-  background: var(--secondary-color);
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
   flex-basis: 0;
   flex-grow: 1;
-  border-right: 1px solid black;
+  border-right: 1px solid var(--primary-color);
   margin: 1rem;
 }
 
 .buttons button {
-  background: var(--primary-color);
+  background: var(--secondary-color);
+  color: var(--tertiary-color);
   width: 8rem;
   padding: 0.2rem 1rem;
   font-weight: 400;
   font-size: 1.1rem;
   border-radius: 1rem;
+  border: none;
   box-shadow: none;
 }
 
@@ -90,6 +102,11 @@ main .play .display {
   align-items: center;
   justify-content: center;
   text-align: center;
+  color: var(--secondary-color);
+}
+
+main .play .display h3 {
+  /* padding-left: 1.1rem; */
 }
 
 /* Reset button */
@@ -98,20 +115,24 @@ main button.reset {
   font-size: 1.2rem;
   font-weight: 700;
   border-radius: 1rem;
+  border: none;
+  background: var(--secondary-color);
+  color: var(--tertiary-color);
 }
 
 
 /* Footer */
 footer {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.1rem;
   text-align: center;
-  background: var(--primary-color);
   vertical-align: middle;
+  background-color: var(--secondary-color);
+  font-family: var(--font-primary);
 }
 
 
 footer a {
   text-decoration: none;
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }

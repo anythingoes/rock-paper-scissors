@@ -1,0 +1,117 @@
+:root {
+  --primary-color: gray;
+  --secondary-color: white;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+  text-align: center;
+  line-height: 1.2;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* HEADER */
+header {
+  background: var(--primary-color);
+  width: 100%;
+}
+
+header h1 {
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+
+/* MAIN */
+main {
+  height: 80%;
+  width: 100%;
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background: var(--secondary-color);
+}
+
+/* Play buttons and display  */
+main .play {
+  height: 50%;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  /* padding: 1rem 2rem; */
+}
+
+/* Gameplay buttons */
+main .buttons {
+  background: var(--secondary-color);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-basis: 0;
+  flex-grow: 1;
+  border-right: 1px solid black;
+  margin: 1rem;
+}
+
+.buttons button {
+  background: var(--primary-color);
+  width: 8rem;
+  padding: 0.2rem 1rem;
+  font-weight: 400;
+  font-size: 1.1rem;
+  border-radius: 1rem;
+  box-shadow: none;
+}
+
+main .play .display {
+  height: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Reset button */
+main button.reset {
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 1rem;
+}
+
+
+/* Footer */
+footer {
+  width: 100%;
+  padding: 0.5rem;
+  text-align: center;
+  background: var(--primary-color);
+  vertical-align: middle;
+}
+
+
+footer a {
+  text-decoration: none;
+  color: var(--secondary-color);
+}

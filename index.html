@@ -4,12 +4,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Javascript implementaion of the game tic-tac-toe">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
   <title>Tic Tac Toe</title>
-  <description>Javascript implementaion of the game tic-tac-toe</description>
 </head>
 
 <body>
-  <script src="./script.js"></script>
+
+  <header>
+    <h1>Rock -- Paper -- Scissors</h1>
+  </header>
+
+  <main>
+    <!-- Play Div containing the main elements of the game -->
+    <section class="play">
+      <div class="buttons">
+        <button>Rock</button>
+        <button>Paper</button>
+        <button>Scissors</button>
+      </div>
+
+      <div class="display">
+        <h3>Player 0 : 0 Computer</h3>
+
+        <div class="message">
+          <p>You Lose</p>
+          <hr>
+          <p>Paper beats Rock</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Button to reset -->
+    <button type="button" class="reset">New Game</button>
+  </main>
+
+  <footer>
+    <p>
+      Rock, Paper, Scissors by <a href="https://github.com/anythingoes">Rohit Saraff</a>
+    </p>
+  </footer>
+
+  <script src="./script/script.js"></script>
 </body>
 
 </html>

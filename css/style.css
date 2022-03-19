@@ -78,7 +78,7 @@ main .buttons {
   flex-basis: 0;
   flex-grow: 1;
   border-right: 1px solid var(--primary-color);
-  margin: 1rem;
+  margin: 0 1rem;
 }
 
 .buttons button {
@@ -105,11 +105,7 @@ main .play .display {
   color: var(--secondary-color);
 }
 
-main .play .display h3 {
-  /* padding-left: 1.1rem; */
-}
-
-/* Reset button */
+/* Reset/New Game button */
 main button.reset {
   padding: 0.8rem 2rem;
   font-size: 1.2rem;
@@ -127,7 +123,7 @@ footer {
   padding: 0.1rem;
   text-align: center;
   vertical-align: middle;
-  background-color: var(--secondary-color);
+  background: var(--secondary-color);
   font-family: var(--font-primary);
 }
 

@@ -1,5 +1,8 @@
 console.log('Hello there!');
 
+let playerScore = 0;
+let computerScore = 0;
+
 
 function computerPlay() {
   let options = ['Rock', 'Paper', 'Scissors'];
@@ -20,73 +23,116 @@ function singleRound(playerSelection, compSelection) {
   playerSelection_cptl = capitalize(playerSelection);
 
   if (playerSelection_cptl === compSelection) {
-    return 0;
+    return 'Draw';
   }
 
   switch (playerSelection_cptl) {
     case 'Rock':
       if (compSelection === 'Paper') {
-        return -1;
+        return 'Computer';
       }
       break;
     case 'Paper':
       if (compSelection === 'Scissors') {
-        return -1;
+        return 'Computer';
       }
       break;
     case 'Scissors':
       if (compSelection === 'Rock') {
-        return -1;
+        return 'Computer';
       }
       break;
   }
-  return 1;
+  return 'Player';
 
 }
 
-function roundWinnerPrint(score) {
-  switch (score) {
-    case -1:
-      console.log('You lose!');
+function roundWinnerPrint(result) {
+  const roundWinner = document.querySelector('.display > .message > p');
+  switch (result) {
+    case 'Computer':
+      roundWinner.textContent = 'You Lose!';
       break;
-    case 0:
-      console.log('Draw!');
+    case 'Draw':
+      roundWinner.textContent = 'Draw!';
       break;
-    case 1:
-      console.log('You Win!');
+    case 'Player':
+      roundWinner.textContent = 'You Win!';
+      break;
+    default:
+      roundWinner.textContent = "----";
       break;
   }
 }
 
-function gameWinnerPrint(score) {
-  if (score > 0) {
-    console.log('You win the game!');
-  } else if (score < 0) {
-    console.log('You lose the game!');
-  } else {
-    console.log('Game ends in a draw!');
+
+function updateScore(roundWinner) {
+  switch (roundWinner) {
+    case 'Computer':
+      computerScore += 1;
+      break;
+    case 'Player':
+      playerScore += 1;
+    default:
+      break;
   }
 }
 
+function printScore() {
+  const scoreHeading = document.querySelector('.display > h3');
+  scoreHeading.textContent = `Player ${playerScore} : ${computerScore} Computer`;
+}
 
-function game() {
-  let player_score = 0;
-
-  for (let i = 0; i < 5; i++) {
-    let playerChoice = prompt("Chosee from 'Rock', 'Paper' or 'Scissors'");
-    let compChoice = computerPlay();
-    roundScore = singleRound(playerChoice, compChoice)
-
-    roundWinnerPrint(roundScore);
-    player_score += roundScore;
-    console.log(player_score);
+function roundMessagePrint(winner, player, comp) {
+  const roundMessage = document.querySelector('.roundMessage')
+  switch (winner) {
+    case 'Computer':
+      roundMessage.textContent = `${comp} beats ${player}`;
+      break;
+    case 'Player':
+      roundMessage.textContent = `${player} beats ${comp}`;
+      break;
+    case 'Draw':
+      roundMessage.textContent = "It's a draw!"
+      break;
+    default:
+      roundMessage.textContent = "----";
+      break;
   }
+}
 
-  gameWinnerPrint(player_score);
+function game(playerSelect) {
+  let compChoice = computerPlay();
+  roundWinner = singleRound(playerSelect, compChoice);
+  updateScore(roundWinner);
+  roundWinnerPrint(roundWinner);
+  roundMessagePrint(roundWinner, playerSelect, compChoice);
+  printScore();
+}
 
+function gameReset() {
+  playerScore = 0;
+  computerScore = 0;
+  printScore();
+  roundWinnerPrint('-');
+  roundMessagePrint('-');
 }
 
 
 
+// Play Game
+const playerChoiceButtons = document.querySelectorAll('.buttons > button');
 
-// game()
+playerChoiceButtons.forEach((button) => {
+  // Get player choice and call game()
+  button.addEventListener('click', () => {
+    let playerChoice = button.value;
+
+    game(playerChoice);
+  });
+});
+
+
+// Reset game
+const resetButton = document.querySelector('.reset');
+resetButton.addEventListener('click', gameReset);
